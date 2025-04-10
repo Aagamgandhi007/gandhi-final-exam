@@ -183,7 +183,7 @@ Resources:
         - Type: forward
           TargetGroupArn: !Ref TargetGroup
 
-  ECSagle:
+  ECSCluster:  # Fixed from ECSagle
     Type: AWS::ECS::Cluster
     Properties:
       ClusterName: gandhi-final-exam-ecs-cluster
