@@ -5,11 +5,11 @@ phases:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 739275462844.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
-      - docker build -t gandhi-final-repo .
-      - docker tag gandhi-final-repo:latest 739275462844.dkr.ecr.us-east-1.amazonaws.com/gandhi-final-repo:latest
+      - docker build -t gandhi-final-exam .
+      - docker tag gandhi-final-exam:latest 739275462844.dkr.ecr.us-east-1.amazonaws.com/gandhi-final-exam:latest
   post_build:
     commands:
-      - docker push 739275462844.dkr.ecr.us-east-1.amazonaws.com/gandhi-final-repo:latest
-      - printf '[{"name":"gandhi-container","imageUri":"%s"}]' 739275462844.dkr.ecr.us-east-1.amazonaws.com/gandhi-final-repo:latest > imagedefinitions.json
+      - docker push 739275462844.dkr.ecr.us-east-1.amazonaws.com/gandhi-final-exam:latest
+      - printf '[{"name":"gandhi-final-exam-container","imageUri":"%s"}]' 739275462844.dkr.ecr.us-east-1.amazonaws.com/gandhi-final-exam:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
